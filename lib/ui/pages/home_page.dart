@@ -54,26 +54,30 @@ class HomePage extends StatelessWidget {
     Widget searchBox() {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
-        child: Container(
-          width: 331,
-          height: 55,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-          decoration: BoxDecoration(
-            color: kWhiteColor,
-            borderRadius: BorderRadius.circular(11),
-          ),
-          child: TextFormField(
-            decoration: InputDecoration.collapsed(
-              hintText: 'Find your next home',
-              hintStyle: greyTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: light,
+        child: Row(
+          children: [
+            Container(
+              width: 331,
+              height: 55,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 16,
+              ),
+              decoration: BoxDecoration(
+                color: kWhiteColor,
+                borderRadius: BorderRadius.circular(11),
+              ),
+              child: TextFormField(
+                decoration: InputDecoration.collapsed(
+                  hintText: 'Find your next home',
+                  hintStyle: greyTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: light,
+                  ),
+                ),
               ),
             ),
-          ),
+          ],
         ),
       );
     }
