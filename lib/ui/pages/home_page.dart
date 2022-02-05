@@ -52,32 +52,35 @@ class HomePage extends StatelessWidget {
     }
 
     Widget searchBox() {
+      var outlineInputBorder = const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(11),
+          ),
+          borderSide: BorderSide.none);
+
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
-        child: Row(
-          children: [
-            Container(
-              width: 331,
-              height: 55,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
+        child: Form(
+          child: TextFormField(
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: kWhiteColor,
+              border: outlineInputBorder,
+              enabledBorder: outlineInputBorder,
+              focusedBorder: outlineInputBorder,
+              hintText: 'Find your next home',
+              hintStyle: greyTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: light,
               ),
-              decoration: BoxDecoration(
-                color: kWhiteColor,
-                borderRadius: BorderRadius.circular(11),
-              ),
-              child: TextFormField(
-                decoration: InputDecoration.collapsed(
-                  hintText: 'Find your next home',
-                  hintStyle: greyTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: light,
-                  ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.all(10),
+                child: SvgPicture.asset(
+                  'assets/Icon_search_outline.svg',
                 ),
               ),
             ),
-          ],
+          ),
         ),
       );
     }
