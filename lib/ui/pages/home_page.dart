@@ -42,9 +42,12 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset(
-              'assets/user_pic.png',
-              width: 55,
+            Container(
+              margin: const EdgeInsets.only(top: 14),
+              child: Image.asset(
+                'assets/user_pic.png',
+                width: 55,
+              ),
             ),
           ],
         ),
@@ -85,12 +88,123 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget paymentSafety() {
+      return Container(
+        width: 331,
+        height: 90,
+        margin: const EdgeInsets.only(
+          top: 33,
+          left: 22,
+          right: 22,
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: 16,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: const DecorationImage(
+            image: AssetImage(
+              'assets/bg.png',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon1.png',
+                  width: 60,
+                ),
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Payment Safety',
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Text(
+                      'Kindly only use our official card',
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget listTitleKost() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 27,
+          left: 22,
+          right: 22,
+        ),
+        child: Text(
+          'Most People Go',
+          style: blackTextStyle.copyWith(
+            fontSize: 18,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget listKost() {
+      return Padding(
+        padding: const EdgeInsets.only(
+          left: 22,
+          right: 22,
+          top: 16,
+        ),
+        child: Container(
+          height: 93,
+          decoration: BoxDecoration(
+            color: kWhiteColor,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: const DecorationImage(
+                        image: AssetImage('assets/kos1.png'),
+                        fit: BoxFit.cover),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: ListView(
         children: [
           header(),
           searchBox(),
+          paymentSafety(),
+          listTitleKost(),
+          listKost(),
         ],
       ),
     );
