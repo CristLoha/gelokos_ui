@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../shared/theme.dart';
+import 'Widgets/custom_list.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final List _name = ['Fukko Cozy', 'Blue Fast', 'Jamaixa IIX', 'Yaka Past'];
+
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -151,6 +154,7 @@ class HomePage extends StatelessWidget {
           top: 27,
           left: 22,
           right: 22,
+          bottom: 11,
         ),
         child: Text(
           'Most People Go',
@@ -163,49 +167,32 @@ class HomePage extends StatelessWidget {
     }
 
     Widget listKost() {
-      return Padding(
-        padding: const EdgeInsets.only(
-          left: 22,
-          right: 22,
-          top: 16,
-        ),
-        child: Container(
-          height: 93,
-          decoration: BoxDecoration(
-            color: kWhiteColor,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/kos1.png'),
-                        fit: BoxFit.cover),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      );
+      return ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: _name.length,
+          itemBuilder: (context, index) {
+            return CustomListCard();
+          });
     }
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: ListView(
-        children: [
-          header(),
-          searchBox(),
-          paymentSafety(),
-          listTitleKost(),
-          listKost(),
-        ],
+      body: SingleChildScrollView(
+        physics: ScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            header(),
+            searchBox(),
+            paymentSafety(),
+            listTitleKost(),
+            listKost(),
+            const SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }
