@@ -5,12 +5,15 @@ Color kPrimaryColor = const Color(0xff29D5F8);
 Color kBlackColor = const Color(0xff040507);
 Color kWhiteColor = const Color(0xffFFFFFF);
 Color kGreyColor = const Color(0xffA5A5A5);
-Color kBackgroundColor = const Color(0xffE5E5E5);
+Color kBackgroundColor = const Color(0xffF2F6FD);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: kBlackColor,
 );
 
+TextStyle whiteTextStyle = GoogleFonts.poppins(
+  color: kWhiteColor,
+);
 TextStyle greyTextStyle = GoogleFonts.poppins(
   color: kGreyColor,
 );
