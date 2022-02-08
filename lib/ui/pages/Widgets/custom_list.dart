@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import '../../../shared/theme.dart';
 
 class CustomListCard extends StatelessWidget {
+  final String name;
+  final String images;
+  final String gender;
   const CustomListCard({
+    required this.name,
+    required this.images,
+    required this.gender,
     Key? key,
   }) : super(key: key);
 
@@ -12,7 +18,7 @@ class CustomListCard extends StatelessWidget {
       padding: const EdgeInsets.only(
         left: 22,
         right: 22,
-        top: 5,
+        bottom: 10,
       ),
       child: Container(
         height: 93,
@@ -29,8 +35,8 @@ class CustomListCard extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/kos1.png'),
+                  image: DecorationImage(
+                    image: AssetImage(images),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -41,14 +47,14 @@ class CustomListCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Fukko Cozy',
+                    name,
                     style: blackTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
                     ),
                   ),
                   Text(
-                    'Wanita',
+                    gender,
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                       fontWeight: light,

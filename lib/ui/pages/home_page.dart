@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../models/list_kost.dart';
 import '../../shared/theme.dart';
 import 'Widgets/custom_list.dart';
 
 class HomePage extends StatelessWidget {
-  final List _name = ['Fukko Cozy', 'Blue Fast', 'Jamaixa IIX', 'Yaka Past'];
-
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +153,7 @@ class HomePage extends StatelessWidget {
           top: 27,
           left: 22,
           right: 22,
-          bottom: 11,
+          bottom: 16,
         ),
         child: Text(
           'Most People Go',
@@ -168,31 +167,32 @@ class HomePage extends StatelessWidget {
 
     Widget listKost() {
       return ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _name.length,
-          itemBuilder: (context, index) {
-            return CustomListCard();
-          });
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: allKost.length,
+        itemBuilder: (context, index) {
+          ListKost kost = allKost[index];
+          return CustomListCard(
+            name: kost.nameIndex,
+            images: kost.imagesIndex,
+            gender: kost.genderIndex,
+          );
+        },
+      );
     }
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: SingleChildScrollView(
-        physics: ScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            header(),
-            searchBox(),
-            paymentSafety(),
-            listTitleKost(),
-            listKost(),
-            const SizedBox(height: 24),
-          ],
-        ),
+      body: ListView(
+        physics: const ScrollPhysics(),
+        children: [
+          header(),
+          searchBox(),
+          paymentSafety(),
+          listTitleKost(),
+          listKost(),
+          const SizedBox(height: 24),
+        ],
       ),
     );
   }
