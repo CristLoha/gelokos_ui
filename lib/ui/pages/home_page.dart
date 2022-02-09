@@ -193,19 +193,16 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: ListView(
-        physics: const ScrollPhysics(),
-        children: [
-          header(),
-          searchBox(),
-          paymentSafety(),
-          listTitleKost(),
-          listKost(),
-          const SizedBox(height: 24),
-        ],
-      ),
+    return ListView(
+      physics: const ScrollPhysics(),
+      children: [
+        header(),
+        searchBox(),
+        paymentSafety(),
+        listTitleKost(),
+        listKost(),
+        const SizedBox(height: 120),
+      ],
     );
   }
 }

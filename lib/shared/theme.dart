@@ -6,6 +6,7 @@ Color kBlackColor = const Color(0xff040507);
 Color kWhiteColor = const Color(0xffFFFFFF);
 Color kGreyColor = const Color(0xffA5A5A5);
 Color kBackgroundColor = const Color(0xffF2F6FD);
+Color blueOpacity = const Color(0xffDFF8FF);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: kBlackColor,
@@ -16,6 +17,10 @@ TextStyle whiteTextStyle = GoogleFonts.poppins(
 );
 TextStyle greyTextStyle = GoogleFonts.poppins(
   color: kGreyColor,
+);
+
+TextStyle blueTextStyle = GoogleFonts.poppins(
+  color: kPrimaryColor,
 );
 
 FontWeight light = FontWeight.w300;

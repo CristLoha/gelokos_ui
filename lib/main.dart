@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'ui/pages/home_page.dart';
+import 'package:gelokos_ui_app/ui/pages/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const MainPage(),
       },
     );
   }
