@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gelokos_ui_app/ui/pages/detail_page.dart';
 import '../../models/list_kost.dart';
 import '../../shared/theme.dart';
-import 'Widgets/custom_list.dart';
+import '../Widgets/custom_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -172,10 +173,21 @@ class HomePage extends StatelessWidget {
         itemCount: allKost.length,
         itemBuilder: (context, index) {
           ListKost kost = allKost[index];
-          return CustomListCard(
-            name: kost.nameIndex,
-            images: kost.imagesIndex,
-            gender: kost.genderIndex,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => DetailPage(kost: kost)),
+                ),
+              );
+            },
+            child: CustomListCard(
+              name: kost.nameIndex,
+              images: kost.imagesIndex,
+              gender: kost.genderIndex,
+              price: kost.priceIndex.toString(),
+            ),
           );
         },
       );

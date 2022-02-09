@@ -5,10 +5,12 @@ class CustomListCard extends StatelessWidget {
   final String name;
   final String images;
   final String gender;
+  final String price;
   const CustomListCard({
     required this.name,
     required this.images,
     required this.gender,
+    required this.price,
     Key? key,
   }) : super(key: key);
 
@@ -42,26 +44,46 @@ class CustomListCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: blackTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Text(
+                      gender,
+                      style: greyTextStyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: light,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    '\$$price',
                     style: blackTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
                     ),
                   ),
                   Text(
-                    gender,
+                    '/month',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                       fontWeight: light,
                     ),
                   ),
                 ],
-              ),
+              )
             ],
           ),
         ),

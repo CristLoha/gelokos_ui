@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../models/list_kost.dart';
+
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final ListKost kost;
+  const DetailPage({
+    Key? key,
+    required this.kost,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Text(kost.nameIndex),
+      ),
+    );
   }
 }
