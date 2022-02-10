@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../shared/theme.dart';
-import '../pages/main_page.dart';
+import '../../../shared/theme.dart';
 
 class BottomBar extends StatefulWidget {
   Function() onPressed;

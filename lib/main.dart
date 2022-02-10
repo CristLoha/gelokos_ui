@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gelokos_ui_app/ui/pages/main_page.dart';
+import 'ui/Widgets/navbar/main_page.dart';
 
 void main() {
   runApp(const MyApp());

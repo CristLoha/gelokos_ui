@@ -14,7 +14,7 @@ class ListKost {
 
 List allKost = [
   ListKost(
-      nameIndex: 'Anjas Pailah',
+      nameIndex: 'Fukko Cozy',
       genderIndex: 'Wanita',
       imagesIndex: 'assets/kos1.png',
       priceIndex: 55),

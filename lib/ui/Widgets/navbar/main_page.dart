@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gelokos_ui_app/shared/theme.dart';
-import 'package:gelokos_ui_app/ui/Widgets/bottom_bar.dart';
 import 'package:gelokos_ui_app/ui/pages/home_page.dart';
+import '../../pages/filter_page.dart';
+import '../../pages/like_page.dart';
+import 'bottom_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -12,22 +13,25 @@ class MainPage extends StatefulWidget {
 }
 
 enum BottomIcons {
-  Home,
-  Like,
-  Filter,
-  Language,
-  Profile,
+  home,
+  like,
+  filter,
+  language,
+  profile,
 }
 
 class _MainPageState extends State<MainPage> {
-  BottomIcons bottomIcons = BottomIcons.Home;
+  /// MAIN PAGE: HOME
+  BottomIcons bottomIcons = BottomIcons.home;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
-          bottomIcons == BottomIcons.Home ? HomePage() : Container(),
+          bottomIcons == BottomIcons.home ? const HomePage() : Container(),
+          bottomIcons == BottomIcons.like ? const LikePage() : Container(),
+          bottomIcons == BottomIcons.filter ? const FilterPage() : Container(),
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -49,11 +53,11 @@ class _MainPageState extends State<MainPage> {
                     BottomBar(
                       onPressed: () {
                         setState(() {
-                          bottomIcons = BottomIcons.Home;
+                          bottomIcons = BottomIcons.home;
                         });
                       },
                       bottomIcons:
-                          bottomIcons == BottomIcons.Home ? true : false,
+                          bottomIcons == BottomIcons.home ? true : false,
                       text: 'HOME',
                       icons: 'assets/Icon_home.svg',
                     ),
@@ -62,11 +66,11 @@ class _MainPageState extends State<MainPage> {
                     BottomBar(
                       onPressed: () {
                         setState(() {
-                          bottomIcons = BottomIcons.Like;
+                          bottomIcons = BottomIcons.like;
                         });
                       },
                       bottomIcons:
-                          bottomIcons == BottomIcons.Like ? true : false,
+                          bottomIcons == BottomIcons.like ? true : false,
                       text: 'LIKE',
                       icons: 'assets/Icon_love.svg',
                     ),
@@ -76,11 +80,11 @@ class _MainPageState extends State<MainPage> {
                     BottomBar(
                       onPressed: () {
                         setState(() {
-                          bottomIcons = BottomIcons.Filter;
+                          bottomIcons = BottomIcons.filter;
                         });
                       },
                       bottomIcons:
-                          bottomIcons == BottomIcons.Filter ? true : false,
+                          bottomIcons == BottomIcons.filter ? true : false,
                       text: 'FILTER',
                       icons: 'assets/Icon_filter.svg',
                     ),
@@ -90,11 +94,11 @@ class _MainPageState extends State<MainPage> {
                     BottomBar(
                       onPressed: () {
                         setState(() {
-                          bottomIcons = BottomIcons.Language;
+                          bottomIcons = BottomIcons.language;
                         });
                       },
                       bottomIcons:
-                          bottomIcons == BottomIcons.Language ? true : false,
+                          bottomIcons == BottomIcons.language ? true : false,
                       text: 'LANGUAGE',
                       icons: 'assets/Icon_language.svg',
                     ),
@@ -103,11 +107,11 @@ class _MainPageState extends State<MainPage> {
                     BottomBar(
                       onPressed: () {
                         setState(() {
-                          bottomIcons = BottomIcons.Profile;
+                          bottomIcons = BottomIcons.profile;
                         });
                       },
                       bottomIcons:
-                          bottomIcons == BottomIcons.Profile ? true : false,
+                          bottomIcons == BottomIcons.profile ? true : false,
                       text: 'PROFILE',
                       icons: 'assets/Icon_user.svg',
                     ),
